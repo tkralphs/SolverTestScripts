@@ -35,10 +35,8 @@ number or special parameters. For example
 scripts/symphony/generate_condor_symphony 1 3600 trunk
 ```
 will run jobs on a single core for one hour and put results in the 
-directory
-```symphony/res.1.3600.trunk```
-The result of running the script will be a condor submission file. 
-Submit it to condor with
+directory ```symphony/res.1.3600.trunk```. The result of running the script 
+will be a condor submission file. Submit it to condor with
 ```
 condor_submit jobs/xxx.condor
 ```
