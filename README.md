@@ -47,8 +47,8 @@ running
 ```
 scripts/xxx/gather_results_xxx.sh DirName
 ```
-where ```DirName``` is the complete postfix of the directory name where
-the results are located (```1.3600.trunk``` in the example).
+where ```DirName``` is the complete name of the directory name where
+the results are located (```res.1.3600.trunk``` in the example).
 
 This is a work in progress and your mileage may vary. There may be
 mistakes in the scripts and/or documentation so use at your own risk!
