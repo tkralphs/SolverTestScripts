@@ -1,0 +1,13 @@
+# condor submit file
+
+# get your environment
+getenv = TRUE
+
+# parameters for the whole job cluster
+notification = Error
+notify_user = ted@lehigh.edu
+requirements = (Arch == "X86_64")
+
+#remove job after 30 minutes anyway.
+#periodic_remove = (JobStatus == 2) && (CurrentTime - EnteredCurrentStatus > $(MAX_SECONDS))
+
