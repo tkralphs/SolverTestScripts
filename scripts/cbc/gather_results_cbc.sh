@@ -78,4 +78,4 @@ then
     rm sol.tmp
 fi
 
-awk -f $SCRIPTPATH/parse.awk -f  $SCRIPTPATH/parse_cbc.awk $OUTFILE | tee $RESFILE
+awk -f $SCRIPTPATH/parse.awk -f  $SCRIPTPATH/cbc/parse_cbc.awk $OUTFILE | tee $RESFILE

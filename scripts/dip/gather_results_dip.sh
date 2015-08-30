@@ -64,4 +64,4 @@ done 2>&1 | tee -a $OUTFILE
 
 date >> $OUTFILE
 
-awk -f $SCRIPTPATH/parse.awk -f  $SCRIPTPATH/parse_dip.awk $OUTFILE | tee $RESFILE
+awk -f $SCRIPTPATH/parse.awk -f  $SCRIPTPATH/dip/parse_dip.awk $OUTFILE | tee $RESFILE

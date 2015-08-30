@@ -71,4 +71,4 @@ then
     rm sol.tmp
 fi
 
-awk -f $SCRIPTPATH/parse.awk -f  $SCRIPTPATH/parse_symphony.awk $OUTFILE | tee $RESFILE
+awk -f $SCRIPTPATH/parse.awk -f  $SCRIPTPATH/symphony/parse_symphony.awk $OUTFILE | tee $RESFILE
