@@ -10,9 +10,9 @@
 # construct paths
 PWD=`pwd`
 CHECKERPATH=$PWD/checker
-RESULTSPATH=$PWD/$1
+RESULTSPATH=$PWD/symphony/$1
 SCRIPTPATH=$PWD/scripts
-INSTPATH=$PWD/miplib3
+INSTPATH=$PWD/miplib2010
 OUTFILE=$RESULTSPATH/$1.output
 RESFILE=$RESULTSPATH/$1.summary
 

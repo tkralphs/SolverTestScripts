@@ -1,15 +1,16 @@
 #!/bin/bash
 
-TIMELIMIT=600
+CPUS=$1
+TIMELIMIT=$2
+POSTFIX=$3
 MIPGAP=0.0
 
-MIPLIBPATH=`pwd`
-BINPATH=$MIPLIBPATH/bin
-CHECKERPATH=$MIPLIBPATH/checker
-RESULTSPATH=$MIPLIBPATH/results
-SCRIPTPATH=$MIPLIBPATH/scripts
-TSTPATH=$MIPLIBPATH/testset
-INSTPATH=$MIPLIBPATH/miplib3
+PWD=`pwd`
+JOBPATH=$PWD/jobs
+CHECKERPATH=$PWD/checker
+RESULTSPATH=$PWD/cbc/res.$CPUS.$TIMELIMIT.$POSTFIX
+SCRIPTPATH=$PWD/scripts
+INSTPATH=$PWD/miplib2010
 
 UNIVERSE=vanilla
 OUT_SUFF=".out"
@@ -17,22 +18,20 @@ ERR_SUFF=".err.\$(Process)"
 VIS_SUFF=".vis"
 SKEL_FILE=${SCRIPTPATH}/cbc.condor.skel
 #EXECUTABLE=${SCRIPTPATH}/run_cbc.sh
-EXECUTABLE=/home/ted/Cbc/stable/2.6/build-polyps-static-parallel/bin/cbc
+EXECUTABLE=/home/ted/COIN/trunk/build-polyps-parallel/bin/cbc
 EXEC_STATUS=`ls -lt ${EXECUTABLE}`
-MAX_SECONDS=7800
 HOLD=False
 
 INIT_DIR=${INSTPATH}
 LOG=${RESULTSPATH}/cbc.log
 
-OUT_FILE=${BINPATH}/cbc.condor
+OUT_FILE=${JOBPATH}/cbc.condor
 
 cat $SKEL_FILE>$OUT_FILE
 echo "
 universe    = $UNIVERSE
 log         = ${LOG}
 Executable  = ${EXECUTABLE}
-MAX_SECONDS = ${MAX_SECONDS}
 
 # executable: ${EXEC_STATUS}
 
@@ -40,18 +39,19 @@ MAX_SECONDS = ${MAX_SECONDS}
 # -----------------------------------------------------------------------------
 ">>$OUT_FILE
 
+mkdir -p $RESULTSPATH
 
 let count=0
 
-for file in ${INSTPATH}/*.gz
-#for instance_name in `awk '(1){print $1}' ${MIPLIBPATH}/benchmark.txt`
+#for file in ${INSTPATH}/*.gz
+for file in `awk '(1){print $1}' ${INSTPATH}/miplib2010_bench.test`
 do
   instance_name=`basename ${file%.*}`
   if test ! -e ${RESULTSPATH}/${instance_name}.out
   then
       SOLFILE=${RESULTSPATH}/${instance_name}.sol
 #     ARGS="cbc /home/tkr2/Cbc-trunk/build-static/bin/cbc $file $TIMELIMIT $SOLFILE 0 $MIPGAP"
-      ARGS="-import $instance_name.gz -sec $TIMELIMIT -threads 4 -ratio $MIPGAP -timeMode elapsed -solve -solution $SOLFILE"
+      ARGS="-import $instance_name.gz -sec $TIMELIMIT -threads $CPUs -ratio $MIPGAP -timeMode elapsed -solve -solution $SOLFILE"
       echo "
       initialdir              = ${INIT_DIR}
       output                  = ${RESULTSPATH}/${instance_name}${OUT_SUFF}

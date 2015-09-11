@@ -7,9 +7,9 @@ POSTFIX=$3
 PWD=`pwd`
 JOBPATH=$PWD/jobs
 CHECKERPATH=$PWD/checker
-RESULTSPATH=$PWD/symphony.res.$CPUS.$TIMELIMIT.$POSTFIX
+RESULTSPATH=$PWD/symphony/res.$CPUS.$TIMELIMIT.$POSTFIX
 SCRIPTPATH=$PWD/scripts
-INSTPATH=$PWD/miplib3
+INSTPATH=$PWD/miplib2010
 
 UNIVERSE=vanilla
 OUT_SUFF=".out"
@@ -17,7 +17,7 @@ ERR_SUFF=".err.\$(Process)"
 VIS_SUFF=".vis"
 SKEL_FILE=${JOBPATH}/symphony.condor.skel
 #EXECUTABLE=${SCRIPTPATH}/run_cbc.sh
-EXECUTABLE=/home/ted/COIN/SYMPHONY-5.6.1/build-debug/bin/symphony
+EXECUTABLE=/home/ted/COIN/trunk/build-linux-x86_64-gcc4.7.2/bin/symphony
 EXEC_STATUS=`ls -lt ${EXECUTABLE}`
 HOLD=False
 
@@ -42,15 +42,15 @@ mkdir -p $RESULTSPATH
 
 let count=0
 
-for file in ${INSTPATH}/*.gz
-#for instance_name in `awk '(1){print $1}' ${MIPLIBPATH}/benchmark.txt`
+#for file in ${INSTPATH}/*.gz
+for file in `awk '(1){print $1}' ${INSTPATH}/miplib2010_bench.test`
 do
   instance_name=`basename ${file%.*}`
   if test ! -e ${RESULTSPATH}/${instance_name}.out
   then
       SOLFILE=${RESULTSPATH}/${instance_name}.sol
 #     ARGS="cbc /home/tkr2/Cbc-trunk/build-static/bin/cbc $file $TIMELIMIT $SOLFILE 0 $MIPGAP"
-      ARGS="-F $instance_name.gz -t $TIMELIMIT -p $CPUS -f options.txt --args"
+      ARGS="-F $instance_name.gz -t $TIMELIMIT -p $CPUS --args"
       echo "
       initialdir              = ${INIT_DIR}
       output                  = ${RESULTSPATH}/${instance_name}${OUT_SUFF}
