@@ -51,7 +51,7 @@ do
   then
       SOLFILE=${RESULTSPATH}/${instance_name}.sol
 #     ARGS="cbc /home/tkr2/Cbc-trunk/build-static/bin/cbc $file $TIMELIMIT $SOLFILE 0 $MIPGAP"
-      ARGS="-import $instance_name.gz -sec $TIMELIMIT -threads $CPUs -ratio $MIPGAP -timeMode elapsed -solve -solution $SOLFILE"
+      ARGS="-import $instance_name.gz -sec $TIMELIMIT -threads $CPUS -ratio $MIPGAP -timeMode elapsed -solve -solution $SOLFILE"
       echo "
       initialdir              = ${INIT_DIR}
       output                  = ${RESULTSPATH}/${instance_name}${OUT_SUFF}

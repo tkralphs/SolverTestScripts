@@ -8,15 +8,13 @@
 # $Id: run.sh,v 1.4 2010/12/14 13:45:18 bzfheinz Exp $
 
 # construct paths
-POSTFIX=.2.6.parallel.miplib3.600
-MIPLIBPATH=`pwd`
-BINPATH=$MIPLIBPATH/bin
-CHECKERPATH=$MIPLIBPATH/checker
-RESULTSPATH=$MIPLIBPATH/results
-SCRIPTPATH=$MIPLIBPATH/scripts
-INSTPATH=$MIPLIBPATH/miplib3
-OUTFILE=cbc.out$POSTFIX
-RESFILE=cbc.res$POSTFIX
+PWD=`pwd`
+CHECKERPATH=$PWD/checker
+RESULTSPATH=$PWD/cbc/$1
+SCRIPTPATH=$PWD/scripts
+INSTPATH=$PWD/miplib2010
+OUTFILE=$RESULTSPATH/$1.output
+RESFILE=$RESULTSPATH/$1.summary
 
 # absolute tolerance for checking linear constraints and objective value
 LINTOL=1e-4 
@@ -54,7 +52,7 @@ do
   if test -e ${RESULTSPATH}/${instance_name}.sol
       then
 	    # check if the link to the solution checker exists
-      awk -f /home/ted/Cbc/trunk/Cbc/scripts/parse_cbc_sol.awk ${RESULTSPATH}/${instance_name}.sol > sol.tmp
+      awk -f $SCRIPTPATH/cbc/parse_cbc_sol.awk ${RESULTSPATH}/${instance_name}.sol > sol.tmp
       if test -f "$CHECKERPATH/bin/solchecker" 
 	  then
 	  echo 
