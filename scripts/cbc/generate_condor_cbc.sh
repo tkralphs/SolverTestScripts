@@ -16,7 +16,7 @@ UNIVERSE=vanilla
 OUT_SUFF=".out"
 ERR_SUFF=".err.\$(Process)"
 VIS_SUFF=".vis"
-SKEL_FILE=${SCRIPTPATH}/cbc.condor.skel
+SKEL_FILE=${SCRIPTPATH}/cbc/cbc.condor.skel
 #EXECUTABLE=${SCRIPTPATH}/run_cbc.sh
 EXECUTABLE=/home/ted/COIN/trunk/build-polyps-parallel/bin/cbc
 EXEC_STATUS=`ls -lt ${EXECUTABLE}`
@@ -61,6 +61,7 @@ do
       hold                    = $HOLD
       should_transfer_files   = yes
       when_to_transfer_output = ON_EXIT
+      request_cpus            = `expr $CPUS`
       queue 1
       
 # -----------------------------------------------------------------------------
