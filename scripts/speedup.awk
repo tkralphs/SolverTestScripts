@@ -41,8 +41,7 @@ BEGIN{
    }else{
       if (time[i] < 0.1){
 	 if (time[i] <= -0.1 && $4 >= 0.1){
-#	    speedup[i,num_procs[p]] = time[i]/$4;
-	    speedup[i,num_procs[p]] = $4/time[i];
+	    speedup[i,num_procs[p]] = time[i]/$4;
 	 }else{
 	    speedup[i,num_procs[p]] = -100000;
 	 }
@@ -63,11 +62,13 @@ BEGIN{
 END{
    for (k = 0; k < i; k++){
       if (name[k] != "abort"){
-	 printf("%10s ", name[k]);
-	 for (j = 0; j <= p; j++){
-	    printf("%11.3f ", speedup[k, num_procs[j]]);
-	 } 
-	 printf("\n");
+	 if (speedup[k, num_procs[1]] > 0){
+	    printf("%20s ", name[k]);
+	    for (j = 1; j <= p; j++){
+	       printf("%11.3f ", speedup[k, num_procs[j]]);
+	    } 
+	    printf("\n");
+	 }
       }
    }
 }
