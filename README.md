@@ -48,6 +48,22 @@ scripts/xxx/gather_results_xxx.sh DirName
 where ```DirName``` is the complete name of the directory name where
 the results are located (```res.1.3600.trunk``` in the example).
 
+If you want to create a performance profile comparing two runs on the 
+same test set, first generate the results summary, as above (assuming
+you are working with the Condor work flow), then execute
+```
+scripts/compare_results.sh Dir1 Dir2 Dir3 ...
+```
+where the directories contain the summary results for each of the
+experiments to be compared. This will create a file compare.eps
+using the script pprof.py that contains the performance profile. 
+Of course, you can adjust the arguments to pprof as you like be editing
+the scripts.
+
+IMPORTANT: All scripts should be run from the root directory of the
+checkout. I was lazy and assumed this in implementing everything.
+Feel free to fix it and send a pull request :).
+
 This is a work in progress and your mileage may vary. There may be
 mistakes in the scripts and/or documentation so use at your own risk!
 
