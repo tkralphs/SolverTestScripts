@@ -2,26 +2,26 @@
 
 CPUS=$1
 TIMELIMIT=$2
-ADDITIONAL_ARGS=$3
-SUFFIX_STR=$4
+TESTSET=$3
+ADDITIONAL_ARGS=$4
+SUFFIX_STR=$5
 
 PWD=`pwd`
 JOBPATH=$PWD/jobs
 CHECKERPATH=$PWD/checker
 SCRIPTPATH=$PWD/scripts
-INSTPATH=$PWD/miplib3
-TESTSET=`basename $INSTPATH`
+INSTPATH=$PWD/$TESTSET
 EXECUTABLE=/home/ted/COIN/SYMPHONY-trunk/build-opt/bin/symphony
 EXEC_STATUS=`ls -lt ${EXECUTABLE}`
 REVISION=`$EXECUTABLE --version | awk '($2 == "Revision") {print $4;}'`
 VERSION=`$EXECUTABLE --version | awk '($2 == "Version:") {print $3;}'`
-ARGS=`echo "$3" | sed 's/ //g'`
+ARGS=`echo "$ADDITIONAL_ARGS" | sed 's/ //g'`
 SUFFIX=$CPUS.$TIMELIMIT
-if [ -n "$3" ] 
+if [ -n "$ADDITIONAL_ARGS" ] 
 then
   SUFFIX+=.$ARGS
 fi
-if [ -n "$4" ]
+if [ -n "$SUFFIX_STRING" ]
 then
   SUFFIX+=.$SUFFIX_STR
 fi
@@ -57,8 +57,17 @@ mkdir -p $RESULTSPATH
 
 let count=0
 
-for file in ${INSTPATH}/*.gz
-#for file in `awk '(1){print $1}' ${INSTPATH}/miplib2010_bench.test`
+FILES=""
+if [ $TESTSET = "miplib3" ]
+then
+   FILES=${INSTPATH}/*.gz
+fi
+if [ $TESTSET = "miplib2010" ]
+then
+   FILES=`awk '(1){print $1}' ${INSTPATH}/miplib2010_bench.test`
+fi
+
+for file in $FILES
 do
   instance_name=`basename ${file%.*}`
   if test ! -e ${RESULTSPATH}/${instance_name}.out
