@@ -15,9 +15,7 @@ EXECUTABLE=/home/ted/COIN/SYMPHONY-trunk/build-opt/bin/symphony
 EXEC_STATUS=`ls -lt ${EXECUTABLE}`
 REVISION=`$EXECUTABLE --version | awk '($2 == "Revision") {print $4;}'`
 VERSION=`$EXECUTABLE --version | awk '($2 == "Version:") {print $3;}'`
-echo "$3"
 ARGS=`echo "$3" | sed 's/ //g'`
-echo $ARGS
 SUFFIX=$CPUS.$TIMELIMIT
 if [ -n "$3" ] 
 then
