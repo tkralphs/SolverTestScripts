@@ -2,14 +2,33 @@
 
 CPUS=$1
 TIMELIMIT=$2
-POSTFIX=$3
+ADDITIONAL_ARGS=$3
+SUFFIX_STR=$4
 
 PWD=`pwd`
 JOBPATH=$PWD/jobs
 CHECKERPATH=$PWD/checker
-RESULTSPATH=$PWD/symphony/res.$CPUS.$TIMELIMIT.$POSTFIX
 SCRIPTPATH=$PWD/scripts
-INSTPATH=$PWD/miplib2010
+INSTPATH=$PWD/miplib3
+TESTSET=`basename $INSTPATH`
+EXECUTABLE=/home/ted/COIN/SYMPHONY-trunk/build-opt/bin/symphony
+EXEC_STATUS=`ls -lt ${EXECUTABLE}`
+REVISION=`$EXECUTABLE --version | awk '($2 == "Revision") {print $4;}'`
+VERSION=`$EXECUTABLE --version | awk '($2 == "Version:") {print $3;}'`
+echo "$3"
+ARGS=`echo "$3" | sed 's/ //g'`
+echo $ARGS
+SUFFIX=$CPUS.$TIMELIMIT
+if [ -n "$3" ] 
+then
+  SUFFIX+=.$ARGS
+fi
+if [ -n "$4" ]
+then
+  SUFFIX+=.$SUFFIX_STR
+fi
+SUFFIX+=.$VERSION.R$REVISION.$TESTSET
+RESULTSPATH=$PWD/symphony/res.$SUFFIX
 
 UNIVERSE=vanilla
 OUT_SUFF=".out"
@@ -17,8 +36,6 @@ ERR_SUFF=".err.\$(Process)"
 VIS_SUFF=".vis"
 SKEL_FILE=${JOBPATH}/symphony.condor.skel
 #EXECUTABLE=${SCRIPTPATH}/run_cbc.sh
-EXECUTABLE=/home/ted/COIN/trunk/build-linux-x86_64-gcc4.7.2/bin/symphony
-EXEC_STATUS=`ls -lt ${EXECUTABLE}`
 HOLD=False
 
 INIT_DIR=${INSTPATH}
@@ -42,15 +59,15 @@ mkdir -p $RESULTSPATH
 
 let count=0
 
-#for file in ${INSTPATH}/*.gz
-for file in `awk '(1){print $1}' ${INSTPATH}/miplib2010_bench.test`
+for file in ${INSTPATH}/*.gz
+#for file in `awk '(1){print $1}' ${INSTPATH}/miplib2010_bench.test`
 do
   instance_name=`basename ${file%.*}`
   if test ! -e ${RESULTSPATH}/${instance_name}.out
   then
       SOLFILE=${RESULTSPATH}/${instance_name}.sol
 #     ARGS="cbc /home/tkr2/Cbc-trunk/build-static/bin/cbc $file $TIMELIMIT $SOLFILE 0 $MIPGAP"
-      ARGS="-F $instance_name.gz -t $TIMELIMIT -p $CPUS --args"
+      ARGS="-F $instance_name.gz -t $TIMELIMIT -p $CPUS $ADDITIONAL_ARGS --args"
       echo "
       initialdir              = ${INIT_DIR}
       output                  = ${RESULTSPATH}/${instance_name}${OUT_SUFF}
