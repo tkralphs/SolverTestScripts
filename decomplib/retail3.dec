@@ -1,0 +1,252 @@
+NBLOCKS 50
+BLOCK 1
+demand_fit['299',S]
+demand_fit['299',M]
+demand_fit['299',L]
+demand_fit['299',XL]
+BLOCK 2
+demand_fit['73',S]
+demand_fit['73',M]
+demand_fit['73',L]
+demand_fit['73',XL]
+BLOCK 3
+demand_fit['381',S]
+demand_fit['381',M]
+demand_fit['381',L]
+demand_fit['381',XL]
+BLOCK 4
+demand_fit['275',S]
+demand_fit['275',M]
+demand_fit['275',L]
+demand_fit['275',XL]
+BLOCK 5
+demand_fit['71',S]
+demand_fit['71',M]
+demand_fit['71',L]
+demand_fit['71',XL]
+BLOCK 6
+demand_fit['276',S]
+demand_fit['276',M]
+demand_fit['276',L]
+demand_fit['276',XL]
+BLOCK 7
+demand_fit['621',S]
+demand_fit['621',M]
+demand_fit['621',L]
+demand_fit['621',XL]
+BLOCK 8
+demand_fit['301',S]
+demand_fit['301',M]
+demand_fit['301',L]
+demand_fit['301',XL]
+BLOCK 9
+demand_fit['639',S]
+demand_fit['639',M]
+demand_fit['639',L]
+demand_fit['639',XL]
+BLOCK 10
+demand_fit['375',S]
+demand_fit['375',M]
+demand_fit['375',L]
+demand_fit['375',XL]
+BLOCK 11
+demand_fit['270',S]
+demand_fit['270',M]
+demand_fit['270',L]
+demand_fit['270',XL]
+BLOCK 12
+demand_fit['418',S]
+demand_fit['418',M]
+demand_fit['418',L]
+demand_fit['418',XL]
+BLOCK 13
+demand_fit['378',S]
+demand_fit['378',M]
+demand_fit['378',L]
+demand_fit['378',XL]
+BLOCK 14
+demand_fit['225',S]
+demand_fit['225',M]
+demand_fit['225',L]
+demand_fit['225',XL]
+BLOCK 15
+demand_fit['389',S]
+demand_fit['389',M]
+demand_fit['389',L]
+demand_fit['389',XL]
+BLOCK 16
+demand_fit['282',S]
+demand_fit['282',M]
+demand_fit['282',L]
+demand_fit['282',XL]
+BLOCK 17
+demand_fit['86',S]
+demand_fit['86',M]
+demand_fit['86',L]
+demand_fit['86',XL]
+BLOCK 18
+demand_fit['298',S]
+demand_fit['298',M]
+demand_fit['298',L]
+demand_fit['298',XL]
+BLOCK 19
+demand_fit['398',S]
+demand_fit['398',M]
+demand_fit['398',L]
+demand_fit['398',XL]
+BLOCK 20
+demand_fit['310',S]
+demand_fit['310',M]
+demand_fit['310',L]
+demand_fit['310',XL]
+BLOCK 21
+demand_fit['781',S]
+demand_fit['781',M]
+demand_fit['781',L]
+demand_fit['781',XL]
+BLOCK 22
+demand_fit['502',S]
+demand_fit['502',M]
+demand_fit['502',L]
+demand_fit['502',XL]
+BLOCK 23
+demand_fit['538',S]
+demand_fit['538',M]
+demand_fit['538',L]
+demand_fit['538',XL]
+BLOCK 24
+demand_fit['103',S]
+demand_fit['103',M]
+demand_fit['103',L]
+demand_fit['103',XL]
+BLOCK 25
+demand_fit['280',S]
+demand_fit['280',M]
+demand_fit['280',L]
+demand_fit['280',XL]
+BLOCK 26
+demand_fit['386',S]
+demand_fit['386',M]
+demand_fit['386',L]
+demand_fit['386',XL]
+BLOCK 27
+demand_fit['126',S]
+demand_fit['126',M]
+demand_fit['126',L]
+demand_fit['126',XL]
+BLOCK 28
+demand_fit['430',S]
+demand_fit['430',M]
+demand_fit['430',L]
+demand_fit['430',XL]
+BLOCK 29
+demand_fit['293',S]
+demand_fit['293',M]
+demand_fit['293',L]
+demand_fit['293',XL]
+BLOCK 30
+demand_fit['99',S]
+demand_fit['99',M]
+demand_fit['99',L]
+demand_fit['99',XL]
+BLOCK 31
+demand_fit['309',S]
+demand_fit['309',M]
+demand_fit['309',L]
+demand_fit['309',XL]
+BLOCK 32
+demand_fit['533',S]
+demand_fit['533',M]
+demand_fit['533',L]
+demand_fit['533',XL]
+BLOCK 33
+demand_fit['388',S]
+demand_fit['388',M]
+demand_fit['388',L]
+demand_fit['388',XL]
+BLOCK 34
+demand_fit['552',S]
+demand_fit['552',M]
+demand_fit['552',L]
+demand_fit['552',XL]
+BLOCK 35
+demand_fit['397',S]
+demand_fit['397',M]
+demand_fit['397',L]
+demand_fit['397',XL]
+BLOCK 36
+demand_fit['283',S]
+demand_fit['283',M]
+demand_fit['283',L]
+demand_fit['283',XL]
+BLOCK 37
+demand_fit['504',S]
+demand_fit['504',M]
+demand_fit['504',L]
+demand_fit['504',XL]
+BLOCK 38
+demand_fit['403',S]
+demand_fit['403',M]
+demand_fit['403',L]
+demand_fit['403',XL]
+BLOCK 39
+demand_fit['272',S]
+demand_fit['272',M]
+demand_fit['272',L]
+demand_fit['272',XL]
+BLOCK 40
+demand_fit['431',S]
+demand_fit['431',M]
+demand_fit['431',L]
+demand_fit['431',XL]
+BLOCK 41
+demand_fit['383',S]
+demand_fit['383',M]
+demand_fit['383',L]
+demand_fit['383',XL]
+BLOCK 42
+demand_fit['221',S]
+demand_fit['221',M]
+demand_fit['221',L]
+demand_fit['221',XL]
+BLOCK 43
+demand_fit['384',S]
+demand_fit['384',M]
+demand_fit['384',L]
+demand_fit['384',XL]
+BLOCK 44
+demand_fit['479',S]
+demand_fit['479',M]
+demand_fit['479',L]
+demand_fit['479',XL]
+BLOCK 45
+demand_fit['390',S]
+demand_fit['390',M]
+demand_fit['390',L]
+demand_fit['390',XL]
+BLOCK 46
+demand_fit['712',S]
+demand_fit['712',M]
+demand_fit['712',L]
+demand_fit['712',XL]
+BLOCK 47
+demand_fit['528',S]
+demand_fit['528',M]
+demand_fit['528',L]
+demand_fit['528',XL]
+BLOCK 48
+demand_fit['379',S]
+demand_fit['379',M]
+demand_fit['379',L]
+demand_fit['379',XL]
+BLOCK 49
+demand_fit['512',S]
+demand_fit['512',M]
+demand_fit['512',L]
+demand_fit['512',XL]
+BLOCK 50
+demand_fit['251',S]
+demand_fit['251',M]
+demand_fit['251',L]
+demand_fit['251',XL]
+
